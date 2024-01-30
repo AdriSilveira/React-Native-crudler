@@ -1,23 +1,20 @@
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import Screen from "../layout/Screen";
 import initialModules from "../data/modules.js";
-import ModuleItem from "../components/entity/modules.js";
+import ModuleList from "../components/entity/modules/ModuleList.js";
 
 const ModuleListScreen = () => {
   //Initialisation----------------------------------------
   const modules = initialModules;
-  const handleSelect = () => alert("Item Selected");
+
   //State-------------------------------------------------
   //Handlers----------------------------------------------
+  const handleSelect = (module) => alert(`Item${module.ModuleCode} Selected`);
   //View--------------------------------------------------
 
   return (
     <Screen>
-      <ScrollView style={styles.container}>
-        {modules.map((module) => {
-          return <ModuleItem module={module} onSelecte={handleSelect} />;
-        })}
-      </ScrollView>
+      <ModuleList modules={modules} onSelect={handleSelect} />
     </Screen>
   );
 };
