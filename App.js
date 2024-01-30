@@ -1,9 +1,9 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ModuleListScreen from "./assets/src/screens/ModuleListScreen";
-import ModuleModifyScreen from "./assets/src/screens/ModuleAddScreen";
-import ModuleAddScreen from "./assets/src/screens/ModuleAddScreen";
-import ModuleViewScreen from "./assets/src/screens/ModuleViewScreen";
+import ModuleAddScreen from "./src/components/screens/ModuleAddScreen";
+import ModuleListScreen from "./src/components/screens/ModuleListScreen";
+import ModuleViewScreen from "./src/components/screens/ModuleViewScreen";
+import ModuleModifyScreen from "./src/components/screens/ModuleModifyScreen";
 
 const Stack = createNativeStackNavigator();
 
