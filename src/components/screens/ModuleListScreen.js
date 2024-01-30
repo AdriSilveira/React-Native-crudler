@@ -3,6 +3,7 @@ import Screen from "../layout/Screen.js";
 import initialModules from "../../data/modules.js";
 import ModuleList from "../modules/ModuleList.js";
 import { useState } from "react";
+import RenderCount from "../UI/RenderCount.js";
 
 const ModuleListScreen = () => {
   //Initialisation----------------------------------------
@@ -17,6 +18,7 @@ const ModuleListScreen = () => {
   //View--------------------------------------------------
   return (
     <Screen>
+      <RenderCount />
       <ModuleList modules={modules} onSelect={handleSelect} />
     </Screen>
   );
