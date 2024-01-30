@@ -5,11 +5,18 @@ import ModuleList from "../components/entity/modules/ModuleList.js";
 
 const ModuleListScreen = () => {
   //Initialisation----------------------------------------
-  const modules = initialModules;
+  let modules = initialModules;
 
   //State-------------------------------------------------
   //Handlers----------------------------------------------
-  const handleSelect = (module) => alert(`Item${module.ModuleCode} Selected`);
+  const handleSelect = (module) => {
+    module = modules.filter((item) => {
+      item.ModuleID !== module.ModuleID;
+    });
+    console.log(
+      `After deleting ${module.ModuleCode}, the array modules has length ${modules.length}`
+    );
+  };
   //View--------------------------------------------------
 
   return (
