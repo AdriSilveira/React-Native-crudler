@@ -1,6 +1,6 @@
-import { Pressable, StyleSheet, Text } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
-const Button = ({ label, onclick }) => {
+export const Button = ({ label, onclick }) => {
   return (
     //Initialisations-----------------------------------------
     //State---------------------------------------------------
@@ -12,8 +12,22 @@ const Button = ({ label, onclick }) => {
     </Pressable>
   );
 };
+export const ButtonTray = ({ children }) => {
+  return (
+    //Initialisations-----------------------------------------
+    //State---------------------------------------------------
+    //Handlers------------------------------------------------
+    //View----------------------------------------------------
+
+    <View style={styles.buttonTray}>{children}</View>
+  );
+};
 
 const styles = StyleSheet.create({
+  buttonTray: {
+    flexDirection: "row",
+    gap: 15,
+  },
   button: {
     margin: 2,
     minHeight: 50,
@@ -33,4 +47,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-export default Button;

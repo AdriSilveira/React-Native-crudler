@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import FullWidthImage from "react-native-fullwidth-image";
-import Button from "../../UI/Button";
+import { Button, ButtonTray } from "../../UI/Button";
 
 const ModuleView = ({ module }) => {
   //Initialisation----------------------------------------
@@ -24,8 +24,10 @@ const ModuleView = ({ module }) => {
           {module.ModuleLeaderName}
           <Text style={styles.dimText}>(Module Leader)</Text>
         </Text>
-        <Button label="Modify" />
-        <Button label="Delete" />
+        <ButtonTray>
+          <Button label="Modify" />
+          <Button label="Delete" />
+        </ButtonTray>
       </View>
     </View>
   );
