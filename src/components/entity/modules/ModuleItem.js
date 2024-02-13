@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   item: {
     paddingVertical: 15,
     borderBottonWidth: 1,
-    borderColor: "lightgray",
+    borderColor: "pink",
   },
 });
 
