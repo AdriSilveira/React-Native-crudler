@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     shadowColor: "grey",
     shadowOpacity: 0.6,
-    elevation: 5,
+    //elevation: 5,
   },
   infoTray: {
     gap: 5,
