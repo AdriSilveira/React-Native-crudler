@@ -73,7 +73,6 @@ export const ModuleAddScreen = ({ navigation, route }) => {
         <Text style={styles.itemLabel}>ModuleImageURL</Text>
         <TextInput value={module.ModuleImageURL} style={styles.itemTextInput} />
       </View>
-
       <Screen>
         <ButtonTray>
           <Button label="Add" icon={<Icons.Add />} onclick={handleAdd} />
@@ -89,6 +88,7 @@ const styles = StyleSheet.create({
     color: "grey",
     fontSize: 16,
     marginBotton: 5,
+    gap: 5,
   },
   itemTextInput: {
     height: 50,
@@ -97,6 +97,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 7,
     borderWidth: 1,
+    gap: 7,
     borderColor: "lightgray",
   },
 });
