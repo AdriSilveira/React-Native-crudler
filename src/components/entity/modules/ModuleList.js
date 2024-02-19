@@ -23,6 +23,11 @@ const ModuleList = ({ modules, onSelect }) => {
   );
 };
 
-const styles = StyleSheet.create({});
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 7,
+    backgroundColor: "#F5FCFF",
+  },
+});
 export default ModuleList;

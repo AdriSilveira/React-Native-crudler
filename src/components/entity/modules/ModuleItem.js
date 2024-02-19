@@ -21,8 +21,12 @@ const ModuleItem = ({ module, onSelect }) => {
 const styles = StyleSheet.create({
   item: {
     paddingVertical: 15,
-    borderBottonWidth: 1,
-    borderColor: "pink",
+    borderBottomWidth: 1,
+    borderColor: "lightgrey",
+    borderWidth: 1,
+  },
+  text: {
+    color: "black",
   },
 });
 

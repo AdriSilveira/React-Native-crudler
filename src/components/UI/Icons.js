@@ -10,4 +10,5 @@ const Edit = () => <MaterialIcons name="edit" size={16} />;
 Icons.Add = Add;
 Icons.Delete = Delete;
 Icons.Edit = Edit;
+
 export default Icons;

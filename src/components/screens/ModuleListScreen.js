@@ -1,22 +1,24 @@
 import { StyleSheet, LogBox } from "react-native";
 import Screen from "../layout/Screen.js";
 import initialModules from "../../data/modules.js";
-import ModuleList from "../entity/modules/ModuleList.js";
 import { useState } from "react";
 import Icons from "../UI/Icons.js";
 import { Button, ButtonTray } from "../UI/Button.js";
+import ModuleList from "../entity/modules/ModuleList.js";
 
 const ModuleListScreen = ({ navigation }) => {
-  //Initialisation----------------------------------------
-  LogBox.ignoreLogs([""]);
+  // Initialisation----------------------------------------
+  LogBox.ignoreLogs([
+    "Non-serializable values were found in the navigation state",
+  ]);
 
-  //State-------------------------------------------------
-  //take modules and initialize using the useState
+  // State-------------------------------------------------
+  // Take modules and initialize using the useState
   const [modules, setModules] = useState(initialModules);
 
-  //Handlers----------------------------------------------
-  //function to navigate to the respective module
-  //filter the modules and delete the one that was click one.
+  // Handlers----------------------------------------------
+  // Function to navigate to the respective module
+  // Filter the modules and delete the one that was clicked on.
   const handleDelete = (module) =>
     setModules(modules.filter((item) => item.ModuleID !== module.ModuleID));
 
@@ -36,7 +38,7 @@ const ModuleListScreen = ({ navigation }) => {
 
   const gotoAddScreen = () => navigation.navigate("ModuleAddScreen", { onAdd });
 
-  //View--------------------------------------------------
+  // View--------------------------------------------------
   return (
     <Screen>
       <ButtonTray>
@@ -46,9 +48,10 @@ const ModuleListScreen = ({ navigation }) => {
       <ModuleList modules={modules} onSelect={gotoViewScreen} />
     </Screen>
   );
-
-  const styles = StyleSheet.create({
-    container: {},
-  });
 };
+
+const styles = StyleSheet.create({
+  container: {},
+});
+
 export default ModuleListScreen;

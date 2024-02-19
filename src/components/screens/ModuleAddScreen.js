@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import Screen from "../layout/Screen";
+import Screen from "../layout/Screen.js";
 import Icons from "../UI/Icons.js";
 import { Button, ButtonTray } from "../UI/Button.js";
 
-const defaultModules = {
+const defaultModule = {
   ModuleID: null,
   ModuleName: null, //" Mobile Application Development",
   ModuleCode: null, //"CI7952",
@@ -12,18 +12,19 @@ const defaultModules = {
   ModuleLeaderName: null, //"Graeme Jones",
   ModuleImageURL: null,
 };
-export const ModuleAddScreen = ({ navigation, route }) => {
+const ModuleAddScreen = ({ navigation, route }) => {
   //Initialisation----------------------------------------
   const { onAdd } = route.params;
-  defaultModules.ModuleID = Math.floor(100000 + Math.random() * 900000);
-  defaultModules.ModuleImageURL =
+
+  defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000);
+  defaultModule.ModuleImageURL =
     "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg";
 
   //State-------------------------------------------------
-  const [module, setModule] = useState(defaultModules);
+  const [module, setModule] = useState(defaultModule);
 
   //Handlers----------------------------------------------
-  const handleAdd = () => onAdd(defaultModules);
+  const handleAdd = () => onAdd(module);
   const handleCancel = navigation.goBack;
 
   const handleChange = (field, value) =>
@@ -57,6 +58,7 @@ export const ModuleAddScreen = ({ navigation, route }) => {
           value={module.ModuleLevel}
           onChangeText={(value) => handleChange("ModuleLevel", value)}
           style={styles.itemTextInput}
+          keyboardType="numeric"
         />
       </View>
 
@@ -64,21 +66,24 @@ export const ModuleAddScreen = ({ navigation, route }) => {
         <Text style={styles.itemLabel}>ModuleLeaderName</Text>
         <TextInput
           value={module.ModuleLeaderName}
-          onChange={(value) => handleChange("ModuleLeaderName", value)}
+          onChangeText={(value) => handleChange("ModuleLeaderName", value)}
           style={styles.itemTextInput}
         />
       </View>
 
       <View style={styles.item}>
         <Text style={styles.itemLabel}>ModuleImageURL</Text>
-        <TextInput value={module.ModuleImageURL} style={styles.itemTextInput} />
+        <TextInput
+          value={module.ModuleImageURL}
+          onChangeText={(value) => handleChange("ModuleImageURL", value)}
+          style={styles.itemTextInput}
+        />
       </View>
-      <Screen>
-        <ButtonTray>
-          <Button label="Add" icon={<Icons.Add />} onclick={handleAdd} />
-          <Button label="Cancel" icon={<Icons.Add />} onclick={handleCancel} />
-        </ButtonTray>
-      </Screen>
+
+      <ButtonTray>
+        <Button label="Add" icon={<Icons.Add />} onclick={handleAdd} />
+        <Button label="Cancel" icon={<Icons.Close />} onclick={handleCancel} />
+      </ButtonTray>
     </Screen>
   );
 };
@@ -87,7 +92,7 @@ const styles = StyleSheet.create({
   itemLabel: {
     color: "grey",
     fontSize: 16,
-    marginBotton: 5,
+    marginBottom: 5,
     gap: 5,
   },
   itemTextInput: {

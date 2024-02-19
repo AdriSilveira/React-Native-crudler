@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import Screen from "../layout/Screen";
 import ModuleView from "../entity/modules/ModuleView";
 
-export const ModuleViewScreen = ({ navigate, route }) => {
+const ModuleViewScreen = ({ navigate, route }) => {
   //Initialisation----------------------------------------
   const { module, onDelete } = route.params;
   //State-------------------------------------------------

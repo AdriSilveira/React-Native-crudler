@@ -10,7 +10,7 @@ export const Screen = ({ children }) => {
   return (
     <View style={styles.screen}>
       {children}
-      <StatusBar style="light" />
+      <StatusBar style="dark" />
     </View>
   );
 };

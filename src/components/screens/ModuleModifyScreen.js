@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 import Screen from "../layout/Screen";
 
-export const ModuleModifyScreen = () => {
+const ModuleModifyScreen = () => {
   //Initialisation----------------------------------------
   //State-------------------------------------------------
   //Handlers----------------------------------------------
