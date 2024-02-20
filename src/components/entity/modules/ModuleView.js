@@ -39,7 +39,7 @@ const ModuleView = ({ module, onDelete }) => {
         <Button
           icon={<Icons.Delete />}
           label="Delete"
-          onclick={requestDelete}
+          onClick={requestDelete}
         />
       </ButtonTray>
     </View>

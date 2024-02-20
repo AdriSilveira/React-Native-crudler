@@ -1,8 +1,13 @@
+// import { useState } from "react";
 import { useState } from "react";
 import { StyleSheet, Text, TextInput, View } from "react-native";
-import Screen from "../layout/Screen.js";
-import Icons from "../UI/Icons.js";
-import { Button, ButtonTray } from "../UI/Button.js";
+import Screen from "../layout/Screen";
+import Icons from "../UI/Icons";
+import { Button, ButtonTray } from "../UI/Button";
+// import { StyleSheet, Text, TextInput, View } from "react-native";
+// import Screen from "../layout/Screen.js";
+// import Icons from "../UI/Icons.js";
+// import { Button, ButtonTray } from "../UI/Button.js";
 
 const defaultModules = {
   ModuleID: null,
@@ -14,18 +19,20 @@ const defaultModules = {
 };
 
 const ModuleAddScreen = ({ navigation, route }) => {
+  console.log(route);
+
   //Initialisation----------------------------------------
   const { onAdd } = route.params;
   defaultModules.ModuleID = Math.floor(100000 + Math.random() * 900000);
   defaultModules.ModuleImageURL =
     "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg";
-
+  console.log(defaultModules);
   //State-------------------------------------------------
   const [module, setModule] = useState(defaultModules);
 
   //Handlers----------------------------------------------
   const handleAdd = () => onAdd(module);
-  const handleCancel = navigation.goBack;
+  const handleCancel = () => navigation.goBack();
 
   const handleChange = (field, value) =>
     setModule({ ...module, [field]: value });
@@ -51,7 +58,6 @@ const ModuleAddScreen = ({ navigation, route }) => {
           style={styles.itemTextInput}
         />
       </View>
-
       <View style={styles.item}>
         <Text style={styles.itemLabel}>Modules Level</Text>
         <TextInput
@@ -63,7 +69,7 @@ const ModuleAddScreen = ({ navigation, route }) => {
       </View>
 
       <View style={styles.item}>
-        <Text style={styles.itemLabel}>ModuleLeaderName</Text>
+        <Text style={styles.itemLabel}>Module Leader Name</Text>
         <TextInput
           value={module.ModuleLeaderName}
           onChangeText={(value) => handleChange("ModuleLeaderName", value)}
@@ -79,10 +85,9 @@ const ModuleAddScreen = ({ navigation, route }) => {
           style={styles.itemTextInput}
         />
       </View>
-
       <ButtonTray>
         <Button label="Add" icon={<Icons.Add />} onClick={handleAdd} />
-        <Button label="Cancel" icon={<Icons.Close />} onClick={handleCancel} />
+        <Button label="Cancel" onClick={handleCancel} />
       </ButtonTray>
     </Screen>
   );
