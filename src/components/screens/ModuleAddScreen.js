@@ -4,7 +4,7 @@ import Screen from "../layout/Screen.js";
 import Icons from "../UI/Icons.js";
 import { Button, ButtonTray } from "../UI/Button.js";
 
-const defaultModule = {
+const defaultModules = {
   ModuleID: null,
   ModuleName: null, //" Mobile Application Development",
   ModuleCode: null, //"CI7952",
@@ -12,16 +12,16 @@ const defaultModule = {
   ModuleLeaderName: null, //"Graeme Jones",
   ModuleImageURL: null,
 };
+
 const ModuleAddScreen = ({ navigation, route }) => {
   //Initialisation----------------------------------------
   const { onAdd } = route.params;
-
-  defaultModule.ModuleID = Math.floor(100000 + Math.random() * 900000);
-  defaultModule.ModuleImageURL =
+  defaultModules.ModuleID = Math.floor(100000 + Math.random() * 900000);
+  defaultModules.ModuleImageURL =
     "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg";
 
   //State-------------------------------------------------
-  const [module, setModule] = useState(defaultModule);
+  const [module, setModule] = useState(defaultModules);
 
   //Handlers----------------------------------------------
   const handleAdd = () => onAdd(module);
@@ -58,7 +58,7 @@ const ModuleAddScreen = ({ navigation, route }) => {
           value={module.ModuleLevel}
           onChangeText={(value) => handleChange("ModuleLevel", value)}
           style={styles.itemTextInput}
-          keyboardType="numeric"
+          // keyboardType="numeric"
         />
       </View>
 
@@ -81,8 +81,8 @@ const ModuleAddScreen = ({ navigation, route }) => {
       </View>
 
       <ButtonTray>
-        <Button label="Add" icon={<Icons.Add />} onclick={handleAdd} />
-        <Button label="Cancel" icon={<Icons.Close />} onclick={handleCancel} />
+        <Button label="Add" icon={<Icons.Add />} onClick={handleAdd} />
+        <Button label="Cancel" icon={<Icons.Close />} onClick={handleCancel} />
       </ButtonTray>
     </Screen>
   );
