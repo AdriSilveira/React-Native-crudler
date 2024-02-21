@@ -1,4 +1,4 @@
-import { StyleSheet, LogBox } from "react-native";
+import { StyleSheet, LogBox, Text } from "react-native";
 import Screen from "../layout/Screen.js";
 import initialModules from "../../data/modules.js";
 import { useState } from "react";
@@ -24,6 +24,14 @@ const ModuleListScreen = ({ navigation }) => {
 
   const handleAdd = (module) => setModules([...modules, module]);
 
+  //new array to update our state
+  const handleModify = (updateModule) =>
+    setModules(
+      modules.map((module) =>
+        module.ModuleID === updateModule.ModuleID ? updateModule : module
+      )
+    );
+
   const onDelete = (module) => {
     handleDelete(module);
     navigation.goBack();
@@ -33,24 +41,34 @@ const ModuleListScreen = ({ navigation }) => {
     navigation.goBack();
   };
 
+  const onModify = (module) => {
+    handleModify(module);
+    navigation.navigate("ModuleListScreen");
+  };
+
   const gotoViewScreen = (module) =>
-    navigation.navigate("ModuleViewScreen", { module, onDelete });
+    navigation.navigate("ModuleViewScreen", { module, onDelete, onModify });
 
   const gotoAddScreen = () => navigation.navigate("ModuleAddScreen", { onAdd });
 
   // View--------------------------------------------------
   return (
     <Screen>
+      {/* <Text style={styles.container}>Modules</Text> */}
+      <ModuleList modules={modules} onSelect={gotoViewScreen} />
       <ButtonTray>
         <Button label="Add" icon={<Icons.Add />} onClick={gotoAddScreen} />
       </ButtonTray>
-      <ModuleList modules={modules} onSelect={gotoViewScreen} />
     </Screen>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    fontSize: 25,
+    textAlign: "center",
+    margin: 6,
+  },
 });
 
 export default ModuleListScreen;
