@@ -25,7 +25,8 @@ const ModuleList = ({ modules, onSelect }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 7,
+    padding: 5,
+    //margin: 3,
     backgroundColor: "#F5FCFF",
   },
 });

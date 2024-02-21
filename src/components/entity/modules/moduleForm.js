@@ -18,6 +18,14 @@ const ModuleForm = ({ onSubmit, onCancel }) => {
   defaultModules.ModuleImageURL =
     "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg";
 
+  const levels = [
+    { value: 3, label: "3 (Foundation)" },
+    { value: 4, label: "4 (First year)" },
+    { value: 5, label: "5 (Second year)" },
+    { value: 6, label: "6 (Final year)" },
+    { value: 7, label: "7 (Masters)" },
+  ];
+
   //State-------------------------------------------------
   const [module, setModule] = useState(defaultModules);
 
@@ -50,8 +58,10 @@ const ModuleForm = ({ onSubmit, onCancel }) => {
         onChange={(value) => handleChange("ModuleName", value)}
       />
 
-      <Form.InputText
+      <Form.InputSelect
         label="Modules Level"
+        prompt="Select module level..."
+        options={levels}
         value={module.ModuleLevel}
         onChange={(value) => handleChange("ModuleLevel", value)}
       />
