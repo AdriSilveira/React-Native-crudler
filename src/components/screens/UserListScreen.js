@@ -1,4 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
+import users from "../../data/users";
+
 const UserListScreen = () => {
   //Initialisation----------------------------------------
   //State-------------------------------------------------
@@ -6,7 +8,7 @@ const UserListScreen = () => {
   //View--------------------------------------------------
   return (
     <View>
-      <Text>USER Page</Text>;
+      <Text>HI</Text>
     </View>
   );
 };

@@ -55,11 +55,6 @@ export const App = () => {
           component={UserListScreen}
           options={{ title: "List user" }}
         />
-        {/* <Stack.Screen
-          name="UserListScreen"
-          component={UserListScreen}
-          options={{ title: "List user" }}
-        /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
