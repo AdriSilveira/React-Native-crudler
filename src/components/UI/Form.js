@@ -24,7 +24,7 @@ const Form = ({ children, onSubmit, onCancel, submitLabel, submitIcon }) => {
 
       <ButtonTray>
         <Button label={submitLabel} icon={submitIcon} onClick={onSubmit} />
-        <Button label="Cancel" Click={onCancel} />
+        <Button label="Cancel" icon={<Icons.Close />} onClick={onCancel} />
       </ButtonTray>
     </KeyboardAvoidingView>
   );
