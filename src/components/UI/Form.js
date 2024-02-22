@@ -60,7 +60,7 @@ const InputSelect = ({ label, prompt, options, value, onChange }) => {
         selectedValue={value}
         onValueChange={onChange}
         style={styles.itemPickerStyle}
-        useNativeDriver={true}
+        // useNativeDriver={true}
       >
         <Picker.Item
           value={null}

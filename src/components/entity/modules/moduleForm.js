@@ -1,7 +1,7 @@
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { useState } from "react";
-import Icons from "../../UI/Icons.js";
-import Form from "../../UI/Form.js";
+import Icons from "../../UI/Icons";
+import Form from "../../UI/Form";
 
 const defaultModules = {
   ModuleID: null,
